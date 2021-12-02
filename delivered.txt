@@ -1,1 +1,4 @@
-123
+mashina 200
+sobaka 300
+koshka 400
+psina 500

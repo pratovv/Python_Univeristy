@@ -1,1 +1,3 @@
-Aralash:30blocks,Shoro:10blocks,Gun:30blocks
+Aralash 30blocks
+Shoro 10blocks
+Gun 30blocks

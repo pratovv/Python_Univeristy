@@ -1,1 +1,3 @@
-Aralash:20blocks,Shoro:30blocks,Aralash:10blocks
+Aralash 20blocks
+Shoro 30blocks
+Aralash 10blocks
