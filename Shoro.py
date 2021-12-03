@@ -16,12 +16,10 @@ def saleman_enter(arg):
     f = open('saleman.txt')
     for line in f:
         val1,val2 = line.split(' ')
-        print(val1,val2)
-        if val1 == login and val2[:-1]== password:
+        if val1 == login and val2== password:
             k+=1
             while True:
-                menu = str(input(
-                    'Приветствую дорогой, Продавец!Пожалуйста наберите номер меню для работы с программой, если закончили, то наберите 6: '))
+                menu = str(input('Приветствую дорогой, Продавец!Пожалуйста наберите номер меню для работы с программой, если закончили, то наберите 6: '))
                 if menu == '1':
                     read_file('sale.txt')
                 elif menu == '2':
@@ -35,8 +33,10 @@ def saleman_enter(arg):
                             f = open('sale.txt')
                             for line in f:
                                 val1, val2 = line.split(' ')
+                                print(val2,val1)
                                 if Name==val1:
                                     print(val2)
+                                return
                         elif Number=='2':
                             Date = str(input('Напишите дату для поиска:>>'))
                             f = open('sale.txt')
@@ -45,9 +45,8 @@ def saleman_enter(arg):
                                 print(val2)
                                 if Date==val2[:-1]:
                                     print(val1)
-                                else:
-                                   return print('HI')
-                                   
+                                break
+                                
                         elif Number=='3':
                             break
                           
@@ -118,7 +117,7 @@ def provider_enter(arg):
     password = str(input('Введите пароль '))
     f = open('provider.txt')
     for line in f:
-        val1, val2 = line.split(' ')
+        val1,val2 = line.split(' ')
         if val1 == login and val2 == password:
             while True:
                 menu = str(input(
