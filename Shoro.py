@@ -29,16 +29,15 @@ def saleman_enter(arg):
                     while True:
                         Number=input('')
                         if Number=='1':
-                            Name = str(input('название товара для поиска:>>'))
+                            Name = str(input('Поиск товара по названию:>>'))
                             f = open('sale.txt')
                             for line in f:
                                 val1, val2 = line.split(' ')
-                                print(val2,val1)
                                 if Name==val1:
-                                    print(val2)
+                                    print(val1)
                                 return
                         elif Number=='2':
-                            Date = str(input('Напишите дату для поиска:>>'))
+                            Date = str(input('Поиск товара по дате:>>'))
                             f = open('sale.txt')
                             for line in f:
                                 val1, val2 = line.split(' ')
@@ -49,6 +48,8 @@ def saleman_enter(arg):
                                 
                         elif Number=='3':
                             break
+                        else:
+                            print('Нет команды')
                           
                 elif menu == '3':
                     read_file('solt.txt')
