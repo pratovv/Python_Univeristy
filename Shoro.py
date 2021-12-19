@@ -1,3 +1,6 @@
+from os import remove
+
+
 def read_file(file):
     f = open(file)
     for line in f:
@@ -31,21 +34,25 @@ def saleman_enter(arg):
                         if Number=='1':
                             Name = str(input('Поиск товара по названию:>>'))
                             f = open('sale.txt')
+                            result=False
                             for line in f:
                                 val1, val2 = line.split(' ')
-                                if Name==val1:
-                                    print(val1)
-                                return
+                                if Name.lower()==val1.lower():
+                                    result=True 
+                                    print(line)
+                            if result == False:
+                                print('Такого товара нет') 
                         elif Number=='2':
                             Date = str(input('Поиск товара по дате:>>'))
                             f = open('sale.txt')
+                            result = False
                             for line in f:
                                 val1, val2 = line.split(' ')
-                                print(val2)
-                                if Date==val2[:-1]:
-                                    print(val1)
-                                break
-                                
+                                if Date.lower()==val2[:-1].lower():
+                                    result = True
+                                    print(line) 
+                            if result == False:
+                                print('Товара по данной дате нет')       
                         elif Number=='3':
                             break
                         else:
@@ -55,12 +62,29 @@ def saleman_enter(arg):
                     read_file('solt.txt')
 
                 elif menu == '4':
-                    read_file('solt.txt')
-                    Name = str(input('Название товра для заказа '))
-                    Quantity = str(input('Количество '))
+                    read_file('order.txt')
+                    Name = str(input('Название товара для заказа-> '))
+                    Quantity = str(input('Количество-> '))
+                    with open('order.txt',"a+") as file:
+                        file.write(Name+" "+Quantity+"\n")
                 elif menu == '5':
-                    deleteOne = str(
-                        input('Какой заказ вы бы хотели удалить?>>> '))
+                    array = [ ]
+                    f=open ('solt.txt')
+                    for line in f:
+                        array.append(line)
+                    for i in range (len(array)):
+                        print(str(i+1)+'.'+array[i])
+                    deleteOne = int(
+                        input('Какой заказ вы бы хотели удалить (Выберите цифру)?>>> '))
+                    for i in range(len(array)):
+                        if i == deleteOne-1:
+                            array.remove(array[i]) 
+                    with open('solt.txt',"w") as file:
+                        for line in array:
+                            file.write(line) 
+                    print('У вас осталось:')
+                    read_file('solt.txt')         
+                    
                 elif menu == '6':
                     return print('Программа завершена, мы будем рады вашему возвращению! ')
               
