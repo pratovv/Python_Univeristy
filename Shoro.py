@@ -8,7 +8,6 @@ def read_file(file):
 
 account = str(input('Для запуска программы, пожалуйста введите тип аккаунта: >>> '))
 
-
 def saleman_enter(arg):
     login = str(input('Введите логин '))
     password = str(input('Введите пароль '))
@@ -96,7 +95,7 @@ def delivery_enter(arg):
     f = open('./Accounts/delivery.txt')
     for line in f:
         val1, val2 = line.split(' ')
-        if val1 == login and val2 == password:
+        if val1 == login and val2[:-1] == password:
             validate=True
             while True:
                 menu = str(input(
@@ -143,7 +142,7 @@ def provider_enter(arg):
     f = open('./Accounts/provider.txt')
     for line in f:
         val1,val2 = line.split(' ')
-        if val1 == login and val2 == password:
+        if val1 == login and val2[:-1] == password:
             validate=True
             while True:
                 menu = str(input(
