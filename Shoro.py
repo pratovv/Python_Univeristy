@@ -6,21 +6,18 @@ def read_file(file):
     for line in f:
         print(line[:-1])
 
-
 account = str(input('Для запуска программы, пожалуйста введите тип аккаунта: >>> '))
-
 
 
 def saleman_enter(arg):
     login = str(input('Введите логин '))
     password = str(input('Введите пароль '))
-    k=0
-    a=0
+    validate=False
     f = open('saleman.txt')
     for line in f:
         val1,val2 = line.split(' ')
-        if val1 == login and val2== password:
-            k+=1
+        if val1 == login and val2[:-1]== password:
+            validate=True
             while True:
                 menu = str(input('Приветствую дорогой, Продавец!Пожалуйста наберите номер меню для работы с программой, если закончили, то наберите 6: '))
                 if menu == '1':
@@ -88,7 +85,7 @@ def saleman_enter(arg):
                 elif menu == '6':
                     return print('Программа завершена, мы будем рады вашему возвращению! ')
               
-    if k==a:
+    if validate == False:
         print('Я не понимаю вас')
 
 
