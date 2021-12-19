@@ -13,7 +13,7 @@ def saleman_enter(arg):
     login = str(input('Введите логин '))
     password = str(input('Введите пароль '))
     validate=False
-    f = open('saleman.txt')
+    f = open('./Accounts/saleman.txt')
     for line in f:
         val1,val2 = line.split(' ')
         if val1 == login and val2[:-1]== password:
@@ -92,10 +92,12 @@ def saleman_enter(arg):
 def delivery_enter(arg):
     login = str(input('Введите логин '))
     password = str(input('Введите пароль '))
-    f = open('delivery.txt')
+    validate=False
+    f = open('./Accounts/delivery.txt')
     for line in f:
         val1, val2 = line.split(' ')
         if val1 == login and val2 == password:
+            validate=True
             while True:
                 menu = str(input(
                     'Приветствую дорогой, Доставщик!Пожалуйста наберите номер меню для работы с программой, если закончили, то наберите 7: '))
@@ -130,17 +132,19 @@ def delivery_enter(arg):
                 else:
                     print('Введите пункт из меню')
                 continue
-        else:
-            print('Я не понимаю вас')
+    if validate == False:
+        print('Я не понимаю вас')
 
 
 def provider_enter(arg):
     login = str(input('Введите логин '))
     password = str(input('Введите пароль '))
-    f = open('provider.txt')
+    validate=False
+    f = open('./Accounts/provider.txt')
     for line in f:
         val1,val2 = line.split(' ')
         if val1 == login and val2 == password:
+            validate=True
             while True:
                 menu = str(input(
                     'Приветствую дорогой, Продавец!Пожалуйста наберите номер меню для работы с программой, если закончили, то наберите 5: '))
@@ -164,8 +168,8 @@ def provider_enter(arg):
                 else:
                     print('Введите пункт из меню')
                 continue
-        else:
-            print('Я вас не понимаю')
+    if validate == False:
+        print('Я не понимаю вас')
 
 
 def typeOfAccount(arg):
