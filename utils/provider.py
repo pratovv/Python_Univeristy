@@ -7,7 +7,7 @@ def provider_enter(arg):
     login = str(input('Введите логин '))
     password = str(input('Введите пароль '))
     validate = False
-    f = open('./ccounts/provider.txt')
+    f = open('./accounts/provider.txt')
     for line in f:
         val1, val2 = line.split(' ')
         if val1 == login and val2[:-1] == password:
@@ -26,8 +26,6 @@ def provider_enter(arg):
 
                 elif menu == '3':
                     array = []
-                    qty = []
-                    name = []
                     f = open('./data/need_material.txt')
                     for line in f:
                         val1, val2 = line.split(' ')
@@ -40,8 +38,6 @@ def provider_enter(arg):
                             print(line)
                 elif menu == '4':
                     array = []
-                    qty = []
-                    name = []
                     f = open('./data/need_material.txt')
                     for line in f:
                         val1, val2 = line.split(' ')

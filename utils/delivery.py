@@ -1,3 +1,6 @@
+from os import read
+
+
 def read_file(file):
     f = open(file)
     for line in f:
@@ -20,8 +23,24 @@ def delivery_enter(arg):
                 elif menu == '2':
                     read_file('./data/delivered.txt')
                 elif menu == '3':
-                    deleteOne = str(input(
-                        'Какой заказ был доставлен? Введите название оборудование или его серийный номер '))
+                    array = []
+                    f = open('./data/delivered.txt')
+                    for line in f:
+                        array.append(line)
+                    for i in range(len(array)):
+                        print(str(i+1)+'.'+array[i])
+                    deleteOne = int(input(
+                        'Какой заказ вы бы хотели удалить (Выберите цифру)?>>> '))
+                    for i in range(len(array)):
+                        if i == deleteOne-1:
+                            array.remove(array[i])
+                            with open ("report.txt","w")as f:
+                                f.write(str(array[i]))
+                    with open('./data/delivered.txt', "w") as file:
+                        for line in array:
+                            file.write(line)
+                    print('У вас осталось:')
+                    read_file('./data/delivered.txt')
                 elif menu == '4':
                     f = open('./data/delivered.txt')
                     count = 0
