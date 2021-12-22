@@ -19,7 +19,7 @@ def delivery_enter(arg):
                 menu = str(input(
                     'Приветствую дорогой, Доставщик!Пожалуйста наберите номер меню для работы с программой, если закончили, то наберите 7: '))
                 if menu == '1':
-                    read_file('./data/solt.txt')
+                    read_file('solt.txt')
                 elif menu == '2':
                     read_file('./data/delivered.txt')
                 elif menu == '3':
@@ -33,9 +33,9 @@ def delivery_enter(arg):
                         'Какой заказ вы бы хотели удалить (Выберите цифру)?>>> '))
                     for i in range(len(array)):
                         if i == deleteOne-1:
-                            array.remove(array[i])
-                            with open ("report.txt","w")as f:
-                                f.write(str(array[i]))
+                            deleted=array.pop(i)
+                            with open ("report.txt","a+")as f:
+                                f.write(str(deleted))
                     with open('./data/delivered.txt', "w") as file:
                         for line in array:
                             file.write(line)
@@ -48,7 +48,7 @@ def delivery_enter(arg):
                         count += 1
                     print('Количество доставленных товаров', count)
                 elif menu == '5':
-                    f = open('./data/solt.txt')
+                    f = open('solt.txt')
                     count = 0
                     for line in f:
                         count += 1

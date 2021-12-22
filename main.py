@@ -1,12 +1,6 @@
-from os import name, remove
 from utils.delivery import *
 from utils.provider import *
 from utils.saleman import *
-
-def read_file(file):
-    f = open(file)
-    for line in f:
-        print(line[:-1])
 
 account = str(
     input('Для запуска программы, пожалуйста введите тип аккаунта: >>> '))
